@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* For mobile phones: */
 [class*="col-"] {
     width: 100%;
