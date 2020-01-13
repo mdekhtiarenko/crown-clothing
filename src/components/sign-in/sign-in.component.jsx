@@ -27,7 +27,7 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <div className="sign-in col-4">
+            <div className="sign-in col-s-5 col-3">
                 <h2>I already have an account</h2>
                 <span>Sign in with your email and password</span>
 
