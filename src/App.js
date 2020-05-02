@@ -18,6 +18,7 @@ class App extends React.Component {
 
     componentDidMount() {
         const {setCurrentUserAction} = this.props;
+
         this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
             if (userAuth) { // null on sign out case
                 let userRef = await createUserProfileInFirebase(userAuth);
