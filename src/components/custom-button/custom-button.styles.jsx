@@ -6,7 +6,6 @@ const getButtonStyles = props => {
     } else if (props.inverted) {
         return invertedButtonStyles;
     } else {
-        console.log(props);
         return regularButtonStyles;
     }
 };

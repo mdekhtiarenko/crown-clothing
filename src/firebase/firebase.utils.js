@@ -34,7 +34,8 @@ export const createUserProfileInFirebase = async (user, additionalUserInfo) => {
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
-export const addCollectionAndDocuments =  async (collectionName, objectsToAdd) => {
+
+export const addCollectionAndDocuments = async (collectionName, objectsToAdd) => {
     const collectionRef = firestore.collection(collectionName);
     const butch = firestore.batch();
     objectsToAdd.forEach(object => {
@@ -61,8 +62,17 @@ export const convertShopItemsToMap = (collectionSnapshot) => {
     }, {});
 };
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({prompt: "select_account"});
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const checkIfUserSessionIsActive = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            unsubscribe();
+            resolve(user);
+        }, reject)
+    })
+}
+
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+googleAuthProvider.setCustomParameters({prompt: "select_account"});
+export const signInWithGoogle = () => auth.signInWithPopup(googleAuthProvider);
 
 export default firebase;
