@@ -1,9 +1,7 @@
 import React from "react";
-import {Route} from "react-router-dom";
 import {fetchShopItemsStart} from "../../redux/shop-items/shop-items.actions";
 import {connect} from "react-redux";
-import CollectionOverviewContainer from "../../components/collection-overview/collection-overview.container";
-import CollectionPageContainer from "../collection/collection-page.container";
+import {Outlet} from "react-router-dom";
 
 
 class ShopPage extends React.Component {
@@ -13,11 +11,9 @@ class ShopPage extends React.Component {
     }
 
     render() {
-        const {match} = this.props;
         return (
             <div className="shopPage">
-                <Route exact path={`${match.path}`} component={CollectionOverviewContainer}/>
-                <Route exact path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
+                <Outlet/>
             </div>
         )
     }
