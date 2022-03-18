@@ -1,4 +1,6 @@
-const INITIAL_STATE = {
+import {Directory} from "./directory.types";
+
+const INITIAL_STATE: Directory = {
     directoryItems: [
         {
             title: 'hats',
@@ -35,7 +37,7 @@ const INITIAL_STATE = {
     ]
 };
 
-const directoryReducer = (state = INITIAL_STATE) => {
+const directoryReducer = (state: Directory = INITIAL_STATE): Directory => {
     return state;
 };
 

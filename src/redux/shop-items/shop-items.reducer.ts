@@ -1,12 +1,10 @@
-import {ShopItemsTypes} from "./shop-items.types";
+import {ShopItems, ShopItemsAction, ShopItemsTypes} from "./shop-items.types";
 
 const INITIAL_STATE = {
-    shopItems: null,
     isFetching: false,
-    errorMessage: null,
 };
 
-const shopItemsReducer = (state = INITIAL_STATE, action) => {
+const shopItemsReducer = (state: ShopItems = INITIAL_STATE, action: ShopItemsAction): ShopItems => {
     switch (action.type) {
         case ShopItemsTypes.FETCH_SHOP_ITEMS_START_CALL:
             return {
@@ -16,14 +14,14 @@ const shopItemsReducer = (state = INITIAL_STATE, action) => {
         case ShopItemsTypes.FETCH_SHOP_ITEMS_SUCCESS_CALL:
             return {
                 ...state,
-                shopItems: action.payload,
+                collections: action.collections,
                 isFetching: false
             };
         case ShopItemsTypes.FETCH_SHOP_ITEMS_FAILURE_CALL:
             return {
                 ...state,
                 isFetching: false,
-                errorMessage: action.payload
+                errorMessage: action.errorMessage
             };
         default:
             return state;

@@ -1,4 +1,6 @@
-export const addItemToCart = (itemToAdd, cartItems) => {
+import {CartItem} from "./cart.types";
+
+export const addItemToCart = (itemToAdd: CartItem, cartItems: CartItem[]): CartItem[] => {
     const existingItem = cartItems.find(i => i.id === itemToAdd.id);
 
     if (existingItem) {
@@ -11,7 +13,7 @@ export const addItemToCart = (itemToAdd, cartItems) => {
     return [...cartItems, {...itemToAdd, quantity: 1}];
 };
 
-export const decreaseItemCount = (itemToDecrease, cartItems) => {
+export const decreaseItemCount = (itemToDecrease: CartItem, cartItems: CartItem[]): CartItem[] => {
     const restOfCart = cartItems.filter(i => i.id !== itemToDecrease.id);
     if (itemToDecrease.quantity === 1) {
         return restOfCart;

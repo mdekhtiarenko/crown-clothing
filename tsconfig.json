@@ -1,8 +1,29 @@
 {
-  "esModuleInterop": true,
   "compilerOptions": {
-    "sourceMap": true,
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true
-  }
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src",
+    "custom.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.svg"
+  ]
 }

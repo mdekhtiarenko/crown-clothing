@@ -45,22 +45,6 @@ export const addCollectionAndDocuments = async (collectionName, objectsToAdd) =>
     return await butch.commit();
 };
 
-export const convertShopItemsToMap = (collectionSnapshot) => {
-    const collection = collectionSnapshot.docs.map(docSnapshot => {
-        const {title, items} = docSnapshot.data();
-        return {
-            id: docSnapshot.id,
-            routeName: encodeURI(title.toLowerCase()),
-            title,
-            items
-        }
-    });
-
-    return collection.reduce((accumulator, collection) => {
-        accumulator[collection.title.toLowerCase()] = collection;
-        return accumulator;
-    }, {});
-};
 
 export const checkIfUserSessionIsActive = () => {
     return new Promise((resolve, reject) => {

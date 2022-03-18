@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./cart-item.styles.css.styles.scss"
-import {CartItem} from "../../domain";
+import {CartItem} from "../../redux/cart/cart.types";
 
 interface IProps {
     item: CartItem

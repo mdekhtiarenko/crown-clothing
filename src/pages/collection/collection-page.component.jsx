@@ -7,13 +7,13 @@ import {useParams} from "react-router-dom";
 
 const CollectionPage = () => {
     const {collectionId} = useParams();
-    const {title, items} = useSelector(selectCollection(collectionId))
+    const collection = useSelector(selectCollection(collectionId))
     return (
         <div className="collection-page">
-            <h2 className="title">{title}</h2>
+            <h2 className="title">{collection.title}</h2>
             <div className="items">
                 {
-                    items.map(item => <CollectionItem key={item.id} item={item}/>)
+                    collection.items.map(item => <CollectionItem key={item.id} item={item}/>)
                 }
             </div>
         </div>
