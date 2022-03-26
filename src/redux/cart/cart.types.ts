@@ -1,5 +1,8 @@
+import {Item} from "../shop-items/shop-items.types";
+
 export interface CartAction {
     type: CartActionType,
+    itemToAdd?: Item
     payload?: CartItem
 }
 

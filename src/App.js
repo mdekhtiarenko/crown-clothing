@@ -13,8 +13,9 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-import CollectionOverviewContainer from "./components/collection-overview/collection-overview.container";
-import CollectionPageContainer from "./pages/collection/collection-page.container";
+import CollectionPageContainer from "./pages/collection";
+import {CollectionsOverviewPage} from "./pages/collections-overview";
+
 class App extends React.Component {
 
     componentDidMount() {
@@ -29,7 +30,7 @@ class App extends React.Component {
                 <Routes>
                     <Route exact path='/' element={<HomePage/>}/>
                     <Route path='/shop' element={<ShopPage/>}>
-                        <Route path="" element={<CollectionOverviewContainer/>}/>
+                        <Route path="" element={<CollectionsOverviewPage/>}/>
                         <Route path={`:collectionId`} element={<CollectionPageContainer/>}/>
                     </Route>
                     <Route exact path='/checkout' element={<CheckoutPage/>}/>

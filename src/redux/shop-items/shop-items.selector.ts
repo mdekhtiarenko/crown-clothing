@@ -14,12 +14,7 @@ export const selectCollection = (collectionName: string) => createSelector(
     (collections: Collection[]): Collection | undefined => collections && collections.find(collection => collection.routeName === collectionName)
 );
 
-export const selectIsShopItemsFetching = createSelector(
-    [selectShopItems],
-    (shopItems: ShopItems): boolean => shopItems.isFetching
-);
-
-export const selectIsShopItemsLoaded = createSelector(
+export const selectIsCollectionsLoaded = createSelector(
     [selectShopItems],
     (shopItems: ShopItems): boolean => !!shopItems.collections
 );

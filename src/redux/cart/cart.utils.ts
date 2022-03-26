@@ -1,6 +1,7 @@
 import {CartItem} from "./cart.types";
+import {Item} from "../shop-items/shop-items.types";
 
-export const addItemToCart = (itemToAdd: CartItem, cartItems: CartItem[]): CartItem[] => {
+export const addItemToCart = (itemToAdd: Item, cartItems: CartItem[]): CartItem[] => {
     const existingItem = cartItems.find(i => i.id === itemToAdd.id);
 
     if (existingItem) {
